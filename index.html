@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script>
+      const handleClick = () => {
+        const url = document.getElementById('text').value;
+        QRCode.toCanvas(document.getElementById('canvas'), url, function (error) {
+          if (error) console.error(error)
+          console.log('success!');
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <h1>QR Code Generator</h1>
+    <div>
+      Text: <input type="text" id="text" />
+      <button onclick="handleClick()">Generate QR Code</button>
+    </div>
+
+    <div>
+      QR Code:<canvas id="canvas"></canvas>
+    </div>
+    <script src="./node-qrcode/qrcode.js"></script>
+  </body>
+</html>
